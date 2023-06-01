@@ -11,8 +11,11 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import { useDrawerContext } from '../../contexts';
+import { useDrawerContext, useAppThemeContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 
 interface IMenuLateralProps {
   children: React.ReactNode;
@@ -53,6 +56,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   return (
     <>
@@ -95,6 +99,18 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
               ))}
             </List>
           </Box>
+
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </ListItemIcon>
+                <ListItemText primary='Alternar tema' />
+              </ListItemButton>
+            </List>
+          </Box>
+
         </Box>
       </Drawer>
 
