@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 
 interface IThemeContextData{
     themeName: 'light' | 'dark';
-    toogleTheme: () => void;
+    toggleTheme: () => void;
 }
 
 interface IAppThemeProviderProps {
@@ -33,7 +33,7 @@ export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({ children })
   }, [themeName]);
 
   return(
-    <ThemeContext.Provider value={{ themeName, toogleTheme }}>
+    <ThemeContext.Provider value={{ themeName, toggleTheme: toogleTheme }}>
       <ThemeProvider theme={theme}>
         <Box width="100vw" height="100vh" bgcolor={theme.palette.background.default}>
           {children}
