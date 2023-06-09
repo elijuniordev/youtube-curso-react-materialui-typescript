@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import { LayoutBaseDePagina } from '../../shared/layouts';
-import { FerramentasDaListagem } from '../../shared/components';
+import { FerramentasDaListagem, FerramentasDeDetalhe } from '../../shared/components';
 
 
 export const Dashboard = () => {
@@ -9,7 +9,9 @@ export const Dashboard = () => {
     <LayoutBaseDePagina
       titulo='Página inicial'
       barraDeFerramentas={(
-        <FerramentasDaListagem />
+        <FerramentasDeDetalhe 
+          mostrarBotaoSalvarEFechar
+        />
       )}
     >
       <Typography>
