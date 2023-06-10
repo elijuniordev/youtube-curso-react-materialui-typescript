@@ -100,7 +100,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
             style={{
               fontSize: smDown ? '0.6rem' : mdDown ? '1rem' : '1rem',
             }}>
-            Salvar e voltar
+            Salvar e fechar
           </Typography>
         </Button>
       )}
