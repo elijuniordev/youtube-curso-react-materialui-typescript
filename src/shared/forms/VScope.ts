@@ -1,0 +1,1 @@
+export { Scope as Vscope } from '@unform/core';

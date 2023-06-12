@@ -38,9 +38,9 @@
     },
     {
       "id": 13,
-      "cidadeId": 1,
+      "nomeCompleto": "Maria Silva",
       "email": "maria@gmail.com",
-      "nomeCompleto": "Maria Silva"
+      "cidadeId": 1
     },
     {
       "id": 14,
@@ -71,6 +71,24 @@
       "email": "geronimo@gmail.com",
       "cidadeId": 5,
       "id": 157
+    },
+    {
+      "id": 158,
+      "nomeCompleto": "Eli Junior",
+      "email": "juusoares99@gmail.com",
+      "cidadeId": "1"
+    },
+    {
+      "nomeCompleto": "Patricia Rodrigues",
+      "email": "patriciarodi3@gmail.com",
+      "cidadeId": "1",
+      "id": 159
+    },
+    {
+      "cidadeId": 1,
+      "email": "miguelrgsoares@gmail.com",
+      "nomeCompleto": "Miguel Rodrigues Soares",
+      "id": 160
     }
   ],
   "cidades": [
@@ -101,6 +119,10 @@
     {
       "nome": "Tramandaí",
       "id": 7
+    },
+    {
+      "nome": "Osasco",
+      "id": 8
     }
   ],
   "auth": {
