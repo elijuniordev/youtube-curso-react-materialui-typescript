@@ -4,7 +4,7 @@
       "id": 7,
       "nomeCompleto": "Maria Silva",
       "email": "maria@gmail.com",
-      "cidadeId": 3
+      "cidadeId": 8
     },
     {
       "id": 8,
@@ -76,13 +76,13 @@
       "id": 158,
       "nomeCompleto": "Eli Junior",
       "email": "juusoares99@gmail.com",
-      "cidadeId": "1"
+      "cidadeId": 8
     },
     {
+      "id": 159,
       "nomeCompleto": "Patricia Rodrigues",
       "email": "patriciarodi3@gmail.com",
-      "cidadeId": "1",
-      "id": 159
+      "cidadeId": 8
     },
     {
       "cidadeId": 1,
