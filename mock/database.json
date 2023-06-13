@@ -89,6 +89,12 @@
       "email": "miguelrgsoares@gmail.com",
       "nomeCompleto": "Miguel Rodrigues Soares",
       "id": 160
+    },
+    {
+      "nomeCompleto": "José Pindoba",
+      "email": "pindoba@gmail.com",
+      "cidadeId": 9,
+      "id": 161
     }
   ],
   "cidades": [
@@ -123,6 +129,10 @@
     {
       "nome": "Osasco",
       "id": 8
+    },
+    {
+      "id": 9,
+      "nome": "Barueri"
     }
   ],
   "auth": {
