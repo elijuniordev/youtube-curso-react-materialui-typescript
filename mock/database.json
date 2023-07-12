@@ -85,10 +85,10 @@
       "cidadeId": 8
     },
     {
-      "cidadeId": 1,
-      "email": "miguelrgsoares@gmail.com",
+      "id": 160,
       "nomeCompleto": "Miguel Rodrigues Soares",
-      "id": 160
+      "email": "miguelrgsoares@gmail.com",
+      "cidadeId": 8
     },
     {
       "nomeCompleto": "José Pindoba",
@@ -99,8 +99,8 @@
   ],
   "cidades": [
     {
-      "nome": "Porto Alegre",
-      "id": 1
+      "id": 1,
+      "nome": "Porto Alegre"
     },
     {
       "nome": "Novo Hamburgo",

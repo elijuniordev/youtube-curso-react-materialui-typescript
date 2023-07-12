@@ -10,6 +10,7 @@ export const Dashboard = () => {
   const [isLoadingPessoas, setIsLoadingPessoas] = useState(true);
   const [totalCountCidades, setTotalCountCidades] = useState(0);
   const [totalCountPessoas, setTotalCountPessoas] = useState(0);
+  
 
   useEffect(() => {
     setIsLoadingCidades(true);
