@@ -12,7 +12,7 @@ interface IFormData {
   nome: string;
 }
 
-const formValidationSchema: yup.Schema<IFormData> = yup.object().shape({
+const formValidationSchema: yup.SchemaOf<IFormData> = yup.object().shape({
   nome: yup.string().required().min(3),
 });
 

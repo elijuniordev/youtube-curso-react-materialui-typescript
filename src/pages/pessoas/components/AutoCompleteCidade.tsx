@@ -1,28 +1,28 @@
-import { Autocomplete, CircularProgress, TextField } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
+import { Autocomplete, CircularProgress, TextField } from '@mui/material';
+
 import { CidadesService } from '../../../shared/services/api/cidades/CidadesService';
 import { useDebounce } from '../../../shared/hooks';
 import { useField } from '@unform/core';
 
 
 type TAutoCompleteOption = {
-    id: number;
-    label: string;
+  id: number;
+  label: string;
 }
 
 interface IAutoCompleteCidadeProps {
-    isExternalLoading?: boolean;
+  isExternalLoading?: boolean;
 }
-
-export const AutoCompleteCidade: React.FC<IAutoCompleteCidadeProps> = ({ isExternalLoading = false}) => {
+export const AutoCompleteCidade: React.FC<IAutoCompleteCidadeProps> = ({ isExternalLoading = false }) => {
   const { fieldName, registerField, defaultValue, error, clearError } = useField('cidadeId');
   const { debounce } = useDebounce();
 
-  const [ selectedId, setSelectedId ] = useState<number | undefined>(defaultValue);
+  const [selectedId, setSelectedId] = useState<number | undefined>(defaultValue);
 
-  const [ opcoes, setOpcoes ] = useState<TAutoCompleteOption[]>([]);
-  const [ isLoading, setIsLoading ] = useState(false);
-  const [ busca, setBusca ] = useState('');
+  const [opcoes, setOpcoes] = useState<TAutoCompleteOption[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [busca, setBusca] = useState('');
 
   useEffect(() => {
     registerField({
@@ -36,15 +36,16 @@ export const AutoCompleteCidade: React.FC<IAutoCompleteCidadeProps> = ({ isExter
     setIsLoading(true);
 
     debounce(() => {
-      CidadesService.getAll(1, busca, selectedId?.toString())
+      CidadesService.getAll(1, busca, selectedId)
         .then((result) => {
           setIsLoading(false);
+
           if (result instanceof Error) {
             // alert(result.message);
           } else {
             console.log(result);
 
-            setOpcoes(result.data.map(cidade => ({id: cidade.id, label: cidade.nome })));
+            setOpcoes(result.data.map(cidade => ({ id: cidade.id, label: cidade.nome })));
           }
         });
     });
@@ -54,34 +55,37 @@ export const AutoCompleteCidade: React.FC<IAutoCompleteCidadeProps> = ({ isExter
     if (!selectedId) return null;
 
     const selectedOption = opcoes.find(opcao => opcao.id === selectedId);
-    if (!selectedId) return null;
+    if (!selectedOption) return null;
 
     return selectedOption;
   }, [selectedId, opcoes]);
 
+
   return (
-    <Autocomplete 
+    <Autocomplete
       openText='Abrir'
       closeText='Fechar'
-      noOptionsText='Nenhuma opção encontrada'
-      disablePortal
+      noOptionsText='Sem opções'
       loadingText='Carregando...'
-      value={autoCompleteSelectedOption}
+
+      disablePortal
+
       options={opcoes}
-      disabled={isExternalLoading}
       loading={isLoading}
+      disabled={isExternalLoading}
+      value={autoCompleteSelectedOption}
       onInputChange={(_, newValue) => setBusca(newValue)}
-      onChange={(_, newValue) => { setSelectedId(newValue?.id); setBusca(''); clearError();}}
-      popupIcon={(isExternalLoading || isLoading) ? <CircularProgress size={20} /> : null}
+      onChange={(_, newValue) => { setSelectedId(newValue?.id); setBusca(''); clearError(); }}
+      popupIcon={(isExternalLoading || isLoading) ? <CircularProgress size={28} /> : undefined}
       renderInput={(params) => (
-        <TextField 
-          {...params} 
-          label="Cidade" 
+        <TextField
+          {...params}
+
+          label="Cidade"
           error={!!error}
           helperText={error}
         />
       )}
     />
   );
-
 };
